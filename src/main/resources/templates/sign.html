@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home page</title>
+</head>
+<body>
+<section>
+<div class="cantainer">
+<div class="row">
+<div class="col-md-4 offset-md-4">
+<div class="my-card mt-0">
+<!-- show error -->
+  <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+     <P th:text="${session.message.content}"> </P>
+    <!--  <th:block th:text="${#session.removeAttribute('message')}"></th:block>  -->
+   </div>
+ 
+<!--   <img th:src="${image/people.png}">-->
+<h1 class="text-center">Rigester Here!!</h1>
+ <form novalidate th:action="@{/register}" method="post" th:object="${user}"> 
+ 
+<!-- make name field -->
+<div class="form-group">
+    <label for="name">Name Here</label>
+    <input type="text" name="name" class="form-control " 
+     th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ' '"
+     id="name" th:value="${user.name}"  placeholder="Enter name" required/>
+    
+          <div class="invalid-feedback" th:each="e : ${#fields.errors('name')}" th:text="${e}"> 
+         </div>
+    
+  </div>
+   <!-- make email feild -->
+<div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" name="email" class="form-control" id="email" 
+    th:classappend="${#fields.hasErrors('email')} ? 'is-invalid':''"
+     placeholder="Enter email" required th:value="${user.email}"/>
+     
+     <div class="invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}">
+
+         </div>
+    
+  </div>
+  
+  <!-- make password field -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" class="form-control"
+    th:classappend="${#fields.hasErrors('password')} ? 'is-invalid':''"
+     id="password"  placeholder="Enter password" required />
+     
+      <div class="invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}">
+
+         </div>
+     
+  </div>
+  
+  <!-- make about field -->
+  <div class="form-group">
+  <textarea rows="5" class="form-control" th:value="${user.about}" placeholder="enter samething about yourself"
+   name="about"></textarea>
+  </div>
+  <!-- make check box -->
+  <div class="form-group from-check">
+  
+  <input  type="checkbox" name="agreement" class="from-check-input" id="agreement">
+    <label for="agreement">Terms and condition </label>    
+  </div>
+   <!--  make button here -->
+  <div class="cantainer text-center">
+  <button type="submit" class="btn btn-primary text-white">Submit </button>
+  
+    <button type="reset" class="btn bg-primary text-white">Reset </button>
+  
+  </div>
+ 
+  
+  
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>

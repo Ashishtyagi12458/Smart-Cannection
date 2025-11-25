@@ -1,0 +1,101 @@
+
+body{
+  background: #e2e2e2 !important;
+}
+
+.bg-primary{
+  background: #009688 !important;
+}
+
+.banner{
+	width: 100%;
+	height: 93vh;
+	background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../image/img1.jpg);
+	background-size: cover;
+	color: white;
+}
+
+.my-card{
+	padding: 20px;
+	background: #FFFFFF;
+}
+
+#login.container #login-row #login-column #login-box{
+  margin-top:120px;
+  max-width:600px;
+  height:420px;
+  border: 1px solid #9C9C9C;
+  background-color: white;
+} 
+
+#login.container #login-row #login-column  #login-box#login-form{
+	padding:20px;
+
+} 
+#login.container#login-row #login-column #login-box #login-form #register-link{
+	margin-top: -85px;
+}
+/* SIDEbar*/ 
+ .sidebar {
+  width: 250px;              /* fix width */
+  background: #e2e2e2;
+  height: 100vh;             /* full screen height */
+  position: fixed;           /* fix on left */
+  top: 60;
+  left: 0;
+  padding-top: 20px;
+  transition: all 0.3s ease-in-out;
+  z-index: 99999999;
+}
+
+ .content {
+  margin-left: 250px;        /* same as sidebar width */
+  padding: 20px;
+  transition: margin-left 0.3s ease-in-out;
+}
+ 
+ .sidebar a{
+  margin-top: 10%;
+   display:block;
+   width:100%;
+   padding: 10px 25px;
+   text-decoration: none;
+   color:gray;
+ }
+ .sidebar a:hover{
+  background: #d5d5d5;
+ }
+ .sidebar .divider{
+   height: .5px;
+   width: 100%;
+   background:#e999;
+   margin-top:10px;
+ }
+ 
+ .sidebar .crossBtn{
+   position: absolute;
+   top: 0;
+   right: 35px;
+   font-size: 36px;
+   cursor: pointer;
+ }
+ 
+ @media only screen and (max-width: 500px) {
+  .sidebar {
+    left: -250px;   /* sidebar chhup jaye */
+  }
+  .sidebar.active {
+    left: 0;        /* toggle karne pe dikhe */
+  }
+  .content {
+    margin-left: 0; /* content full width le */
+  }
+}
+
+.my_photo_pic{
+	width:35px;
+	height:35px;
+	object-fit:cover;
+	border-radius:50%;
+	
+}
